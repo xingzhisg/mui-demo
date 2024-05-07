@@ -32,8 +32,6 @@ export const marginReviewLoader =
   };
 
 export default function MarginReview() {
-  const location = useLocation();
-
   const tier_margin_details = useLoaderData() as MarginJobDetails;
   const navigation = useNavigation();
 
@@ -45,7 +43,7 @@ export default function MarginReview() {
 
   const name = record.name || record.creator + ": " + record.margin_date;
 
-  const [overrides, setOverrides] = React.useState<any>({or: Object(), im: Object(), ic: Object()});
+  const [overrides, setOverrides] = React.useState<any>({or: Object(), im: Object()});
   const [progress, setProgress] = React.useState("1");
   const [currentTab, setCurrentTab] = React.useState("1");
 
@@ -53,17 +51,23 @@ export default function MarginReview() {
     setCurrentTab(newValue);
   };
 
-  const handleOutrightReviewed = (updates: any) => {
+  const handleOutrightReviewed = () => {
     setProgress("2");
     setCurrentTab("2");
-
-    overrides.or = updates;
-    setOverrides(overrides);
   };
 
-  const handleOutrightEdited = (updates: any) => {
-    setProgress("1");
-    setCurrentTab("1");
+  const handleOutrightSaved = (updates: any) => {
+    overrides.or = { ...overrides.or, ...updates };
+    console.log("On Saved updates", overrides.or);
+    setOverrides({...overrides});
+  };
+
+  const handleOutrightEdited = (unsaved_updates: any) => {
+    console.log("unsaved", unsaved_updates);
+    if (progress !== "1") {
+      console.log("unsaved, set progress");
+      setProgress("1");
+    }
   };
 
   return (
@@ -105,7 +109,8 @@ export default function MarginReview() {
             <ReviewORMarginView
               or_details={tier_margin_details.or_details}
               or_overrides={overrides.or}
-              on_save={handleOutrightReviewed}
+              on_review={handleOutrightReviewed}
+              on_save={handleOutrightSaved}
               on_edit={handleOutrightEdited}
             />
           </TabPanel>
