@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 
-import Sidebar from "./components/Sidebar";
 import AppsIcon from "@mui/icons-material/Apps";
 import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
 import GridOnIcon from "@mui/icons-material/GridOn";
@@ -15,6 +14,8 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
+import Sidebar from "./components/Sidebar";
+
 import Apps from "./routes/Apps";
 import DefaultMgmt from "./routes/DefaultMgmt";
 import DCMargin from "./routes/DCMargin";
@@ -22,6 +23,7 @@ import Datatable from "./routes/Datatable";
 import ComputedMargins, {
   marginListLoader,
 } from "./routes/dc_margin/ComputedMargins";
+
 import { AppContext } from "./app_context";
 import MarginDetails, { marginJobLoader } from "./routes/dc_margin/Details";
 import ReviewMargin, { marginReviewLoader } from "./routes/dc_margin/Review";

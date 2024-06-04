@@ -24,8 +24,8 @@ interface SidebarProps {
 
 export default function SideBar(props: SidebarProps) {
   const items = props.items;
-  const width = props.sx?.width ?? '80px';
-  
+  const width = props.sx?.width ?? "80px";
+
   return (
     <Box
       sx={{
@@ -51,7 +51,7 @@ export default function SideBar(props: SidebarProps) {
               }}
             >
               {item.icon}
-              <Typography variant="caption" sx={{ "paddingTop": "5px", }}>
+              <Typography variant="caption" sx={{ paddingTop: "5px" }}>
                 {item.label}
               </Typography>
             </ListItemButton>

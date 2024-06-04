@@ -1,6 +1,12 @@
-import AnalyticsAPI, { ComputedMargin, MarginJobDetails } from "../services/AnalyticsAPI";
-import {margin_details, tier_margin_details} from "./margin_details";
+import AnalyticsAPI, {
+  ComputedMargin,
+  MarginJobDetails,
+} from "../services/AnalyticsAPI";
+
+import { margin_details, tier_margin_details } from "./margin_details";
 import computed_margins from "./mocked_margin_data";
+
+import mocked_data_records from "./mocked_datatable";
 
 export default class MockedAPI implements AnalyticsAPI {
   prod_computed_margin_list = async () => {
@@ -31,21 +37,16 @@ export default class MockedAPI implements AnalyticsAPI {
     return copied;
   };
 
-  
   data_table_list = async () => {
     return [
+      mocked_data_records["broker"]["customers"]["meta"],
+      mocked_data_records["broker"]["transactions"]["meta"],
+      mocked_data_records["POI"]["airports"]["meta"],
+      mocked_data_records["POI"]["shopping_malls"]["meta"],
     ];
   };
 
   data_table_records = async (schema: string, table: string) => {
-    return {
-      meta: {
-        schema,
-        table,
-        primary_keys: [],
-        columns: [],
-      },
-      records: [],
-    };
+    return mocked_data_records[schema][table];
   };
 }
