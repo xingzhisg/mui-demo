@@ -14,8 +14,8 @@ root.render(
   <ThemeProvider theme={theme}>
     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
     <CssBaseline />
-      <AppContext.Provider value={createAppContextValues('development')}>
-        <App />
-      </AppContext.Provider>
+    <AppContext.Provider value={createAppContextValues('development')}>
+      <App />
+    </AppContext.Provider>
   </ThemeProvider>
 );

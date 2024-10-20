@@ -73,7 +73,7 @@ export default function App() {
 function GlobalLayout() {
   // global layout - left sidebar, right content
   return (
-    <Box sx={{ height: "100vh", backgroundColor: "white", display: "flex" }}>
+    <Box sx={{ height: "100vh", backgroundColor: "#f8f4f8", display: "flex" }}>
       <Sidebar
         items={[
           {
@@ -99,7 +99,7 @@ function GlobalLayout() {
         ]}
         sx={{ height: "100%", paddingTop: "20px", width: "90px" }}
       />
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%", backgroundColor: "white", marginRight: "5px", marginTop: "10px", borderRadius: "10px 10px 0px 0px", boxShadow: 1 }}>
         <Outlet />
       </Box>
     </Box>
