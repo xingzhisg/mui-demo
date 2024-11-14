@@ -5,9 +5,11 @@
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@fontsource/roboto": "^5.1.0",
     "@mui/icons-material": "^5.15.15",
     "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "latest",
+    "@mui/styles": "^6.1.7",
     "@mui/x-data-grid": "^7.3.1",
     "@types/react": "latest",
     "@types/react-dom": "latest",
